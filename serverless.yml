@@ -1,0 +1,62 @@
+service: sls-poc
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    port: 3000
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  profile: 94dev
+  stage: dev-1
+  region: ap-south-1
+
+functions:
+  listFrineds:
+    handler: handlers.listFriends
+    timeout: 30
+    events:
+      - http:
+          path: list-friend
+          method: get
+
+  addFriends:
+    handler: handlers.addFriends
+    timeout: 30
+    events:
+      - http:
+          path: add-friend
+          method: post
+
+  updateFriends:
+    handler: handlers.updateFriends
+    timeout: 30
+    events:
+      - http:
+          path: update-friend
+          method: put
+  deleteFriends:
+    handler: handlers.deleteFriends
+    timeout: 30
+    events:
+      - http:
+          path: delete-friend
+          method: delete
+
+  signIn:
+    handler: handlers.signInUser
+    timeout: 30
+    events:
+      - http:
+          path: login-user
+          method: post
+
+  signUp:
+    handler: handlers.signUpUser
+    timeout: 30
+    events:
+      - http:
+          path: create-user
+          method: post

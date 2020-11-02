@@ -1,10 +1,11 @@
 require("./connection")
 const friendsModel=require("../models/friends")
 
+
 //add friend
 const addFriend = async (body) => {
     const friendsmodel = new friendsModel({
-      userId: "5f8d69b56ca67e5066357b03",
+      userId: body._id,
       fullName: body.fullName,
       address: body.address,
       contactNumber: body.contactNumber,
@@ -28,7 +29,7 @@ const updateFriend = async (id, body) => {
         _id: id,
       },
       {
-        userId: "5f8d69b56ca67e5066357b03",
+        userId:body.uId,
         fullName: body.fullName,
         address: body.address,
         contactNumber: body.contactNumber,

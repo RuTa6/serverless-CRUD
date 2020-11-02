@@ -1,14 +1,33 @@
 const { wrapResponse } = require("../utils");
-const { listFriend, addFriend, updateFriend } = require("../db/friends");
+const jwt = require("jsonwebtoken");
+const { listFriend, addFriend, updateFriend, deleteFriend } = require("../db/friends");
+
+// function autherize(str){
+// 	const token=str.headers.authentication
+// 	return token
+
+// //   if (str == null) {
+// //     return (false)
+// // } else return (true)
+// }
+
 
 const listFriends = async (event, context) => {
+	//if (autherize=== true){
+	//  const str=JSON.parse(event.body);
+	//  const auth=autherize(str)
 	const fetcheddData = await listFriend();
-	//console.log("List friends called");
-	return wrapResponse({
-		message: "friends fetched",
+		return wrapResponse({
+		//message:auth,//"friends fetched",
 		data: fetcheddData,
 	});
-};
+//} else {
+// 	return wrapResponse({
+// 		message: "error occured,no auth found",
+// 	})
+// }
+
+}
 const addFriends = async (event, context) => {
 	const body = JSON.parse(event.body);
 	const addedData = await addFriend(body);
@@ -27,12 +46,13 @@ const updateFriends = async (event, context) => {
 	});
 };
 const deleteFriends = async (event, context) => {
-	const id = JSON.parse(event.params.id);
-    const deletedData = await deleteFriend(id);
-    return wrapResponse({
-        message:"friend deleted",
-        data:deletedData
-    })
+	const id = event.pathParameters.id;
+	console.log((id))
+	const deletedData = await deleteFriend(id);
+	return wrapResponse({
+		message: "friend deleted",
+		data: deletedData
+	})
 };
 
 

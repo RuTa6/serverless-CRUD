@@ -76,10 +76,40 @@
               "LogGroupName": "/aws/lambda/sls-poc-dev-1-listFrineds"
             }
           },
-          "HelloWorldPostLogGroup": {
+          "AddFriendsLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/sls-poc-dev-1-helloWorldPost"
+              "LogGroupName": "/aws/lambda/sls-poc-dev-1-addFriends"
+            }
+          },
+          "UpdateFriendsLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/sls-poc-dev-1-updateFriends"
+            }
+          },
+          "DeleteFriendsLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/sls-poc-dev-1-deleteFriends"
+            }
+          },
+          "SignInLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/sls-poc-dev-1-signIn"
+            }
+          },
+          "SignUpLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/sls-poc-dev-1-signUp"
+            }
+          },
+          "AuthorizeLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {
+              "LogGroupName": "/aws/lambda/sls-poc-dev-1-authorize"
             }
           },
           "IamRoleLambdaExecution": {
@@ -166,10 +196,10 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-poc/dev-1/1603452179680-2020-10-23T11:22:59.680Z/sls-poc.zip"
+                "S3Key": "serverless/sls-poc/dev-1/1603953823485-2020-10-29T06:43:43.485Z/sls-poc.zip"
               },
               "FunctionName": "sls-poc-dev-1-listFrineds",
-              "Handler": "handlers.listFrineds",
+              "Handler": "handlers.listFriends",
               "MemorySize": 1024,
               "Role": {
                 "Fn::GetAtt": [
@@ -184,27 +214,27 @@
               "ListFrinedsLogGroup"
             ]
           },
-          "ListFrinedsLambdaVersionEZtRui6ixsp4t7hy9B3fCiUlTlZMj7R0BhMSEMn4io": {
+          "ListFrinedsLambdaVersiont1PmFhw4Y3a6Q5RhImMB6sLz0MbGnKwZVRD4zyk05cU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ListFrinedsLambdaFunction"
               },
-              "CodeSha256": "r0Iijvx/dtj/cCQurYHyQ+uQlzr7nJ6BBXNwY/UcoLA="
+              "CodeSha256": "N32+szzoNISczlJpzOK7z25yawfVgilwhwrv0WwpdxI="
             }
           },
-          "HelloWorldPostLambdaFunction": {
+          "AddFriendsLambdaFunction": {
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/sls-poc/dev-1/1603452179680-2020-10-23T11:22:59.680Z/sls-poc.zip"
+                "S3Key": "serverless/sls-poc/dev-1/1603953823485-2020-10-29T06:43:43.485Z/sls-poc.zip"
               },
-              "FunctionName": "sls-poc-dev-1-helloWorldPost",
-              "Handler": "handler.helloWorldPost",
+              "FunctionName": "sls-poc-dev-1-addFriends",
+              "Handler": "handlers.addFriends",
               "MemorySize": 1024,
               "Role": {
                 "Fn::GetAtt": [
@@ -216,17 +246,192 @@
               "Timeout": 30
             },
             "DependsOn": [
-              "HelloWorldPostLogGroup"
+              "AddFriendsLogGroup"
             ]
           },
-          "HelloWorldPostLambdaVersion2J6QUfK8hq5SsTcKFN5739gBUSjAD8ct9xVr54DqXc": {
+          "AddFriendsLambdaVersionwhKke49hHfr6MDPVtnG5AgVVMJpXC2sDg0NuBX9qhQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
-                "Ref": "HelloWorldPostLambdaFunction"
+                "Ref": "AddFriendsLambdaFunction"
               },
-              "CodeSha256": "r0Iijvx/dtj/cCQurYHyQ+uQlzr7nJ6BBXNwY/UcoLA="
+              "CodeSha256": "N32+szzoNISczlJpzOK7z25yawfVgilwhwrv0WwpdxI="
+            }
+          },
+          "UpdateFriendsLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/sls-poc/dev-1/1603953823485-2020-10-29T06:43:43.485Z/sls-poc.zip"
+              },
+              "FunctionName": "sls-poc-dev-1-updateFriends",
+              "Handler": "handlers.updateFriends",
+              "MemorySize": 1024,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              },
+              "Runtime": "nodejs12.x",
+              "Timeout": 30
+            },
+            "DependsOn": [
+              "UpdateFriendsLogGroup"
+            ]
+          },
+          "UpdateFriendsLambdaVersionOGgb8voVNrx42Lc8nIoa01ncEBTfjLhwJD2HjnDahCg": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "UpdateFriendsLambdaFunction"
+              },
+              "CodeSha256": "N32+szzoNISczlJpzOK7z25yawfVgilwhwrv0WwpdxI="
+            }
+          },
+          "DeleteFriendsLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/sls-poc/dev-1/1603953823485-2020-10-29T06:43:43.485Z/sls-poc.zip"
+              },
+              "FunctionName": "sls-poc-dev-1-deleteFriends",
+              "Handler": "handlers.deleteFriends",
+              "MemorySize": 1024,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              },
+              "Runtime": "nodejs12.x",
+              "Timeout": 30
+            },
+            "DependsOn": [
+              "DeleteFriendsLogGroup"
+            ]
+          },
+          "DeleteFriendsLambdaVersionG0z7KlxYbtX6a5j6dD76zBz6YE6Tb0qRSlIE1BkTs": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "DeleteFriendsLambdaFunction"
+              },
+              "CodeSha256": "N32+szzoNISczlJpzOK7z25yawfVgilwhwrv0WwpdxI="
+            }
+          },
+          "SignInLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/sls-poc/dev-1/1603953823485-2020-10-29T06:43:43.485Z/sls-poc.zip"
+              },
+              "FunctionName": "sls-poc-dev-1-signIn",
+              "Handler": "handlers.signInUser",
+              "MemorySize": 1024,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              },
+              "Runtime": "nodejs12.x",
+              "Timeout": 30
+            },
+            "DependsOn": [
+              "SignInLogGroup"
+            ]
+          },
+          "SignInLambdaVersione7BUTMNPhFdertXuCdqmJwWnxAjc2dAvaVS4MYo": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "SignInLambdaFunction"
+              },
+              "CodeSha256": "N32+szzoNISczlJpzOK7z25yawfVgilwhwrv0WwpdxI="
+            }
+          },
+          "SignUpLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/sls-poc/dev-1/1603953823485-2020-10-29T06:43:43.485Z/sls-poc.zip"
+              },
+              "FunctionName": "sls-poc-dev-1-signUp",
+              "Handler": "handlers.signUpUser",
+              "MemorySize": 1024,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              },
+              "Runtime": "nodejs12.x",
+              "Timeout": 30
+            },
+            "DependsOn": [
+              "SignUpLogGroup"
+            ]
+          },
+          "SignUpLambdaVersion7lREkwxsnip5HcVZ2pUUmlZHOVJawOGjfvqW6p20s": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "SignUpLambdaFunction"
+              },
+              "CodeSha256": "N32+szzoNISczlJpzOK7z25yawfVgilwhwrv0WwpdxI="
+            }
+          },
+          "AuthorizeLambdaFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+              "Code": {
+                "S3Bucket": {
+                  "Ref": "ServerlessDeploymentBucket"
+                },
+                "S3Key": "serverless/sls-poc/dev-1/1603953823485-2020-10-29T06:43:43.485Z/sls-poc.zip"
+              },
+              "FunctionName": "sls-poc-dev-1-authorize",
+              "Handler": "handlers.authorizeUser",
+              "MemorySize": 1024,
+              "Role": {
+                "Fn::GetAtt": [
+                  "IamRoleLambdaExecution",
+                  "Arn"
+                ]
+              },
+              "Runtime": "nodejs12.x",
+              "Timeout": 30
+            },
+            "DependsOn": [
+              "AuthorizeLogGroup"
+            ]
+          },
+          "AuthorizeLambdaVersionwBQT3QICYqrfxm9eHfVYMobHWByp8puLiPNRkDH4": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "AuthorizeLambdaFunction"
+              },
+              "CodeSha256": "N32+szzoNISczlJpzOK7z25yawfVgilwhwrv0WwpdxI="
             }
           },
           "ApiGatewayRestApi": {
@@ -256,7 +461,7 @@
               }
             }
           },
-          "ApiGatewayResourceHello": {
+          "ApiGatewayResourceAddDashfriend": {
             "Type": "AWS::ApiGateway::Resource",
             "Properties": {
               "ParentId": {
@@ -265,7 +470,82 @@
                   "RootResourceId"
                 ]
               },
-              "PathPart": "hello",
+              "PathPart": "add-friend",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceUpdateDashfriend": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "update-friend",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceDeleteDashfriend": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "delete-friend",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceLoginDashuser": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "login-user",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceCreateDashuser": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "create-user",
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              }
+            }
+          },
+          "ApiGatewayResourceAuthDashuser": {
+            "Type": "AWS::ApiGateway::Resource",
+            "Properties": {
+              "ParentId": {
+                "Fn::GetAtt": [
+                  "ApiGatewayRestApi",
+                  "RootResourceId"
+                ]
+              },
+              "PathPart": "auth-user",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -314,13 +594,13 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayMethodHelloPost": {
+          "ApiGatewayMethodAddDashfriendPost": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
               "HttpMethod": "POST",
               "RequestParameters": {},
               "ResourceId": {
-                "Ref": "ApiGatewayResourceHello"
+                "Ref": "ApiGatewayResourceAddDashfriend"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -345,7 +625,7 @@
                       ":lambda:path/2015-03-31/functions/",
                       {
                         "Fn::GetAtt": [
-                          "HelloWorldPostLambdaFunction",
+                          "AddFriendsLambdaFunction",
                           "Arn"
                         ]
                       },
@@ -357,7 +637,222 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1603452168656": {
+          "ApiGatewayMethodUpdateDashfriendPut": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "PUT",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceUpdateDashfriend"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "UpdateFriendsLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            }
+          },
+          "ApiGatewayMethodDeleteDashfriendDelete": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "DELETE",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceDeleteDashfriend"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "DeleteFriendsLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            }
+          },
+          "ApiGatewayMethodLoginDashuserPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceLoginDashuser"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "SignInLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            }
+          },
+          "ApiGatewayMethodCreateDashuserPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceCreateDashuser"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "SignUpLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            }
+          },
+          "ApiGatewayMethodAuthDashuserPost": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+              "HttpMethod": "POST",
+              "RequestParameters": {},
+              "ResourceId": {
+                "Ref": "ApiGatewayResourceAuthDashuser"
+              },
+              "RestApiId": {
+                "Ref": "ApiGatewayRestApi"
+              },
+              "ApiKeyRequired": false,
+              "AuthorizationType": "NONE",
+              "Integration": {
+                "IntegrationHttpMethod": "POST",
+                "Type": "AWS_PROXY",
+                "Uri": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":apigateway:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":lambda:path/2015-03-31/functions/",
+                      {
+                        "Fn::GetAtt": [
+                          "AuthorizeLambdaFunction",
+                          "Arn"
+                        ]
+                      },
+                      "/invocations"
+                    ]
+                  ]
+                }
+              },
+              "MethodResponses": []
+            }
+          },
+          "ApiGatewayDeployment1603953810222": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -367,7 +862,12 @@
             },
             "DependsOn": [
               "ApiGatewayMethodListDashfriendGet",
-              "ApiGatewayMethodHelloPost"
+              "ApiGatewayMethodAddDashfriendPost",
+              "ApiGatewayMethodUpdateDashfriendPut",
+              "ApiGatewayMethodDeleteDashfriendDelete",
+              "ApiGatewayMethodLoginDashuserPost",
+              "ApiGatewayMethodCreateDashuserPost",
+              "ApiGatewayMethodAuthDashuserPost"
             ]
           },
           "ListFrinedsLambdaPermissionApiGateway": {
@@ -407,12 +907,197 @@
               }
             }
           },
-          "HelloWorldPostLambdaPermissionApiGateway": {
+          "AddFriendsLambdaPermissionApiGateway": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
               "FunctionName": {
                 "Fn::GetAtt": [
-                  "HelloWorldPostLambdaFunction",
+                  "AddFriendsLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "UpdateFriendsLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "UpdateFriendsLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "DeleteFriendsLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "DeleteFriendsLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "SignInLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "SignInLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "SignUpLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "SignUpLambdaFunction",
+                  "Arn"
+                ]
+              },
+              "Action": "lambda:InvokeFunction",
+              "Principal": "apigateway.amazonaws.com",
+              "SourceArn": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":execute-api:",
+                    {
+                      "Ref": "AWS::Region"
+                    },
+                    ":",
+                    {
+                      "Ref": "AWS::AccountId"
+                    },
+                    ":",
+                    {
+                      "Ref": "ApiGatewayRestApi"
+                    },
+                    "/*/*"
+                  ]
+                ]
+              }
+            }
+          },
+          "AuthorizeLambdaPermissionApiGateway": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+              "FunctionName": {
+                "Fn::GetAtt": [
+                  "AuthorizeLambdaFunction",
                   "Arn"
                 ]
               },
@@ -454,13 +1139,43 @@
           "ListFrinedsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ListFrinedsLambdaVersionEZtRui6ixsp4t7hy9B3fCiUlTlZMj7R0BhMSEMn4io"
+              "Ref": "ListFrinedsLambdaVersiont1PmFhw4Y3a6Q5RhImMB6sLz0MbGnKwZVRD4zyk05cU"
             }
           },
-          "HelloWorldPostLambdaFunctionQualifiedArn": {
+          "AddFriendsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "HelloWorldPostLambdaVersion2J6QUfK8hq5SsTcKFN5739gBUSjAD8ct9xVr54DqXc"
+              "Ref": "AddFriendsLambdaVersionwhKke49hHfr6MDPVtnG5AgVVMJpXC2sDg0NuBX9qhQ"
+            }
+          },
+          "UpdateFriendsLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "UpdateFriendsLambdaVersionOGgb8voVNrx42Lc8nIoa01ncEBTfjLhwJD2HjnDahCg"
+            }
+          },
+          "DeleteFriendsLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "DeleteFriendsLambdaVersionG0z7KlxYbtX6a5j6dD76zBz6YE6Tb0qRSlIE1BkTs"
+            }
+          },
+          "SignInLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "SignInLambdaVersione7BUTMNPhFdertXuCdqmJwWnxAjc2dAvaVS4MYo"
+            }
+          },
+          "SignUpLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "SignUpLambdaVersion7lREkwxsnip5HcVZ2pUUmlZHOVJawOGjfvqW6p20s"
+            }
+          },
+          "AuthorizeLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "AuthorizeLambdaVersionwBQT3QICYqrfxm9eHfVYMobHWByp8puLiPNRkDH4"
             }
           },
           "ServiceEndpoint": {
@@ -568,7 +1283,7 @@
     "pluginsData": {},
     "functions": {
       "listFrineds": {
-        "handler": "handlers.listFrineds",
+        "handler": "handlers.listFriends",
         "timeout": 30,
         "events": [
           {
@@ -584,26 +1299,121 @@
         "memory": 1024,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "ListFrinedsLambdaVersionEZtRui6ixsp4t7hy9B3fCiUlTlZMj7R0BhMSEMn4io"
+        "versionLogicalId": "ListFrinedsLambdaVersiont1PmFhw4Y3a6Q5RhImMB6sLz0MbGnKwZVRD4zyk05cU"
       },
-      "helloWorldPost": {
-        "handler": "handler.helloWorldPost",
+      "addFriends": {
+        "handler": "handlers.addFriends",
         "timeout": 30,
         "events": [
           {
             "http": {
-              "path": "hello",
+              "path": "add-friend",
               "method": "post",
               "integration": "AWS_PROXY"
             }
           }
         ],
-        "name": "sls-poc-dev-1-helloWorldPost",
+        "name": "sls-poc-dev-1-addFriends",
         "package": {},
         "memory": 1024,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "HelloWorldPostLambdaVersion2J6QUfK8hq5SsTcKFN5739gBUSjAD8ct9xVr54DqXc"
+        "versionLogicalId": "AddFriendsLambdaVersionwhKke49hHfr6MDPVtnG5AgVVMJpXC2sDg0NuBX9qhQ"
+      },
+      "updateFriends": {
+        "handler": "handlers.updateFriends",
+        "timeout": 30,
+        "events": [
+          {
+            "http": {
+              "path": "update-friend",
+              "method": "put",
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "sls-poc-dev-1-updateFriends",
+        "package": {},
+        "memory": 1024,
+        "runtime": "nodejs12.x",
+        "vpc": {},
+        "versionLogicalId": "UpdateFriendsLambdaVersionOGgb8voVNrx42Lc8nIoa01ncEBTfjLhwJD2HjnDahCg"
+      },
+      "deleteFriends": {
+        "handler": "handlers.deleteFriends",
+        "timeout": 30,
+        "events": [
+          {
+            "http": {
+              "path": "delete-friend",
+              "method": "delete",
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "sls-poc-dev-1-deleteFriends",
+        "package": {},
+        "memory": 1024,
+        "runtime": "nodejs12.x",
+        "vpc": {},
+        "versionLogicalId": "DeleteFriendsLambdaVersionG0z7KlxYbtX6a5j6dD76zBz6YE6Tb0qRSlIE1BkTs"
+      },
+      "signIn": {
+        "handler": "handlers.signInUser",
+        "timeout": 30,
+        "events": [
+          {
+            "http": {
+              "path": "login-user",
+              "method": "post",
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "sls-poc-dev-1-signIn",
+        "package": {},
+        "memory": 1024,
+        "runtime": "nodejs12.x",
+        "vpc": {},
+        "versionLogicalId": "SignInLambdaVersione7BUTMNPhFdertXuCdqmJwWnxAjc2dAvaVS4MYo"
+      },
+      "signUp": {
+        "handler": "handlers.signUpUser",
+        "timeout": 30,
+        "events": [
+          {
+            "http": {
+              "path": "create-user",
+              "method": "post",
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "sls-poc-dev-1-signUp",
+        "package": {},
+        "memory": 1024,
+        "runtime": "nodejs12.x",
+        "vpc": {},
+        "versionLogicalId": "SignUpLambdaVersion7lREkwxsnip5HcVZ2pUUmlZHOVJawOGjfvqW6p20s"
+      },
+      "authorize": {
+        "handler": "handlers.authorizeUser",
+        "timeout": 30,
+        "events": [
+          {
+            "http": {
+              "path": "auth-user",
+              "method": "post",
+              "integration": "AWS_PROXY"
+            }
+          }
+        ],
+        "name": "sls-poc-dev-1-authorize",
+        "package": {},
+        "memory": 1024,
+        "runtime": "nodejs12.x",
+        "vpc": {},
+        "versionLogicalId": "AuthorizeLambdaVersionwBQT3QICYqrfxm9eHfVYMobHWByp8puLiPNRkDH4"
       }
     },
     "configValidationMode": "warn",
@@ -629,10 +1439,10 @@
       }
     },
     "isDashboardMonitoringPreconfigured": false,
-    "artifact": "/home/dev2/Downloads/sls-poc/.serverless/sls-poc.zip"
+    "artifact": "/home/dev3/Desktop/94devLessons/serverless-CRUD/.serverless/sls-poc.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/sls-poc/dev-1/1603452179680-2020-10-23T11:22:59.680Z",
+    "artifactDirectoryName": "serverless/sls-poc/dev-1/1603953823485-2020-10-29T06:43:43.485Z",
     "artifact": "sls-poc.zip"
   }
 }

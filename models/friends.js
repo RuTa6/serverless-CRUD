@@ -15,7 +15,7 @@ const friendsModel=new mongoose.Schema({
         type: String,
       },
       dateOfBirth:{
-          type:dateOnly.toString()
+          type:dateOnly
       }
 })
 module.exports = mongoose.model("friends", friendsModel);

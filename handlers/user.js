@@ -1,5 +1,5 @@
 const { wrapResponse } = require("../utils");
-const { signUp, signIn } = require("../db/users");
+const { signUp, signIn, authorization } = require("../db/users");
 
 const signUpUser = async (event, context) => {
 	const body = JSON.parse(event.body);
@@ -14,11 +14,20 @@ const signInUser = async (event, context) => {
 	const loggedUser = await signIn(body);
 	return wrapResponse({
 		message: "user logged in",
-		data: loggedUser,
+		data: loggedUser
 	});
 };
+const authorizeUser= async(event,context)=>{
+	const body=JSON.parse(event.body);
+	const user= await authorization(body);
+	return wrapResponse({
+		message:"user autherized",
+		data:user
+	})
+}
 
 module.exports = {
 	signUpUser,
 	signInUser,
+	authorizeUser
 };

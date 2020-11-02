@@ -21,6 +21,8 @@ functions:
       - http:
           path: list-friend
           method: get
+         
+          
 
   addFriends:
     handler: handlers.addFriends
@@ -29,7 +31,7 @@ functions:
       - http:
           path: add-friend
           method: post
-
+          
   updateFriends:
     handler: handlers.updateFriends
     timeout: 30
@@ -42,14 +44,14 @@ functions:
     timeout: 30
     events:
       - http:
-          path: delete-friend
+          path: delete-friend/{id}
           method: delete
-
+          
   signIn:
     handler: handlers.signInUser
     timeout: 30
     events:
-      - http:
+      - http:s
           path: login-user
           method: post
 
@@ -60,3 +62,14 @@ functions:
       - http:
           path: create-user
           method: post
+
+  authorize:
+    handler: handlers.authorizeUser
+    timeout: 30
+    events:
+      - http:
+          path: auth-user
+          method: post
+
+  
+    

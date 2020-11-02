@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "bulma": "^0.9.1",
     "mongoose": "^5.10.10",
     "mongoose-dateonly": "^1.0.6",
     "serverless-offline": "^6.8.0"

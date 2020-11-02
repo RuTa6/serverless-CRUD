@@ -17,6 +17,8 @@ const signUp = async (body) => {
 		return "error occured" + e;
 	}
 };
+
+
 const signIn = async (body) => {
 	try {
 		const loggedUser = await usersModel.findOne({
@@ -24,12 +26,12 @@ const signIn = async (body) => {
 		});
 		const result = await bcrypt.compare(body.password, loggedUser.password);
 		if (result) {
-			return {
+			return ({
 				id: loggedUser._id,
 				email: loggedUser.email,
 				userName: loggedUser.userName,
-				token: loggedUser.token,
-			};
+				token:loggedUser.token
+			})
 		} else {
 			return {
 				error: true,
@@ -38,12 +40,31 @@ const signIn = async (body) => {
 		}
 	} catch (e) {
 		return {
-			message: "Email is not available",
+			message: e//"Email is not available",
+			
 		};
 	}
 };
 
+ const authorization= async(body)=>{
+	 try{
+		 const  user= await usersModel.findOne({
+			 email:body.email
+		 })
+		 return({
+			 userName:user.userName,
+			 token:user.token,
+			 id:user._id
+		 })
+	 }
+	 catch(e){
+		 return{
+			 message:"Authentication error"+e
+		 }
+	 }
+ }
 module.exports = {
 	signUp,
 	signIn,
+	authorization
 };

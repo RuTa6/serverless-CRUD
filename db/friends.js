@@ -21,7 +21,11 @@ const listFriend = async () => {
     const results = await friendsModel.find()
     return results;
   };
-
+//get friend by id
+const getFriend=async(id)=>{
+  const result=await friendsModel.findOne()
+  return result;
+};
 //update friend
 const updateFriend = async (id, body) => {
     const result = await friendsModel.findOneAndUpdate(
@@ -49,6 +53,6 @@ module.exports={
     listFriend,
     addFriend,
     updateFriend,
-    deleteFriend
-    
+    deleteFriend,
+    getFriend
 }

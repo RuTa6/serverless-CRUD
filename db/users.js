@@ -46,25 +46,8 @@ const signIn = async (body) => {
 	}
 };
 
- const authorization= async(body)=>{
-	 try{
-		 const  user= await usersModel.findOne({
-			 email:body.email
-		 })
-		 return({
-			 userName:user.userName,
-			 token:user.token,
-			 id:user._id
-		 })
-	 }
-	 catch(e){
-		 return{
-			 message:"Authentication error"+e
-		 }
-	 }
- }
+ 
 module.exports = {
 	signUp,
 	signIn,
-	authorization
 };

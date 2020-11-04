@@ -17,17 +17,9 @@ const signInUser = async (event, context) => {
 		data: loggedUser
 	});
 };
-const authorizeUser= async(event,context)=>{
-	const body=JSON.parse(event.body);
-	const user= await authorization(body);
-	return wrapResponse({
-		message:"user autherized",
-		data:user
-	})
-}
+
 
 module.exports = {
 	signUpUser,
 	signInUser,
-	authorizeUser
 };

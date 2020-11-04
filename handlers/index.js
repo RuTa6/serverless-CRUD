@@ -1,5 +1,5 @@
 const { listFriends,addFriends,updateFriends,deleteFriends,getFriendbyid } = require("./friends");
-const {signUpUser,signInUser,authorizeUser} = require("./user")
+const {signUpUser,signInUser} = require("./user")
 module.exports = {
     listFriends,
     addFriends,
@@ -8,5 +8,5 @@ module.exports = {
     deleteFriends,
     signUpUser,
     signInUser,
-    authorizeUser
+   
 }

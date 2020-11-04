@@ -3,9 +3,9 @@ const friendsModel=require("../models/friends")
 
 
 //add friend
-const addFriend = async (body) => {
+const addFriend = async (body,id) => {
     const friendsmodel = new friendsModel({
-      userId: body._id,
+      userId: id,
       fullName: body.fullName,
       address: body.address,
       contactNumber: body.contactNumber,
@@ -17,8 +17,8 @@ const addFriend = async (body) => {
     return results;
   };
 //list friends
-const listFriend = async () => {
-    const results = await friendsModel.find()
+const listFriend = async (userId) => {
+    const results = await friendsModel.find({userId:userId})
     return results;
   };
 //get friend by id
